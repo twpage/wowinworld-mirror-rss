@@ -46,6 +46,11 @@ def print_xml_elements(root):
     # Convert the XML element back to a string
     xml_str = ET.tostring(root, encoding='unicode')
     # xml_str = re.sub("ns(\d)\:", "itunes:", xml_str)
+    xml_str = xml_str.replace(
+        "<title>Wow in the World</title>", 
+        "<title>KJ in the World</title>"
+    )
+
     return xml_str
 
 def main():    
@@ -53,10 +58,10 @@ def main():
 
     modified_root = prune_xml(copy.deepcopy(root))
 
-    open(os.path.join(os.getcwd(), "wow-original.xml"), 'w', encoding='utf-8').write(print_xml_elements(root))
+    open(os.path.join(os.getcwd(), "wow-original.rss"), 'w', encoding='utf-8').write(print_xml_elements(root))
 
-    modified_xml_str = '<?xml version="1.0" encoding="UTF-8"?>' + print_xml_elements(modified_root)
-    open(os.path.join(os.getcwd(), "wow-modified.xml"), 'w', encoding='utf-8').write(modified_xml_str)
+    modified_xml_str = '<?xml version="1.0" encoding="UTF-8"?>\n' + print_xml_elements(modified_root)
+    open(os.path.join(os.getcwd(), "wow-modified.rss"), 'w', encoding='utf-8').write(modified_xml_str)
     print("dunzo")
   
 if __name__ == '__main__':
