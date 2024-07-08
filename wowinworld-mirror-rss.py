@@ -45,7 +45,7 @@ def prune_xml(xml_root):
 def print_xml_elements(root):
     # Convert the XML element back to a string
     xml_str = ET.tostring(root, encoding='unicode')
-    xml_str = re.sub("ns(\d)\:", "itunes:", xml_str)
+    # xml_str = re.sub("ns(\d)\:", "itunes:", xml_str)
     return xml_str
 
 def main():    
