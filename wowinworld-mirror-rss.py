@@ -53,8 +53,10 @@ def main():
 
     modified_root = prune_xml(copy.deepcopy(root))
 
-    open(os.path.join(os.getcwd(), "wow-original.xml"), 'w').write(print_xml_elements(root))
-    open(os.path.join(os.getcwd(), "wow-modified.xml"), 'w').write(print_xml_elements(modified_root))
+    open(os.path.join(os.getcwd(), "wow-original.xml"), 'w', encoding='utf-8').write(print_xml_elements(root))
+
+    modified_xml_str = '<?xml version="1.0" encoding="UTF-8"?>' + print_xml_elements(modified_root)
+    open(os.path.join(os.getcwd(), "wow-modified.xml"), 'w', encoding='utf-8').write(modified_xml_str)
     print("dunzo")
   
 if __name__ == '__main__':
