@@ -1,2 +1,2 @@
 # wowinworld-mirror-rss
- Remove we wow on weekend from rss feed
+ Remove two whats and a wow from rss feed
